@@ -52,6 +52,7 @@ class CurrencyExchangeRateService implements ApiCurrencyRateInterface
             $exchangeRate = $response["result"];
         }
         $result = [];
+        $result['currency'] = 'EUR';
         $result['amount'] = $exchangeRate;
         if (isset($response['error'])) {
             $result['error'] = $response['error'];

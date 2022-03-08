@@ -27,7 +27,7 @@ class TranzactionService
             $conversion = [];
             $conversion = $this->exchangeRateApi->exchangeToEurCurrency($date, $currency, $amount);
             if ($conversion['amount'] > 0) {
-                $tranzaction['currency'] = 'EUR';
+                $tranzaction['currency'] = $conversion['currency'];
                 $tranzaction['amount'] = $conversion['amount'];
             }
         }
