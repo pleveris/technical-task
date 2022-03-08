@@ -104,26 +104,17 @@ class CommissionCalculation extends Rules
     {
         switch ($num) {
             case 1:
-                $result = $this->rule_defaultPricing($this->tranzaction);
+                $result = $this->ruleDefaultPricing($this->tranzaction);
                 return $result;
                 break;
-
-
-
-
 
             case 2:
-                $result = $this->rule_clientWithDiscount($this->tranzaction);
+                $result = $this->ruleClientWithDiscount($this->tranzaction);
                 return $result;
                 break;
-
-
-
-
-
             case 3:
                 $this->tranzaction['turnover'] = true;
-                $result = $this->rule_TurnoverDiscount($this->tranzaction);
+                $result = $this->ruleTurnoverDiscount($this->tranzaction);
                 return $result;
                 break;
         }
