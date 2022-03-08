@@ -27,24 +27,6 @@ class ApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function test()
-    {
-        $t = [];
-        $t['date'] = '2021-01-06';
-        $t['amount'] = 1.00;
-        $t['currency'] = 'EUR';
-        $t['client_id'] = 1;
-        $t['year'] = 2021;
-        $t['month'] = 01;
-        $t['day'] = 01;
-        $t = $this->tranzactionService->checkCurrencyInTranzaction($t);
-        $info = $this->tranzactionService->saveTranzaction($t);
-
-        // Calculate commissions on this tranzaction
-        $response = $this->commissionCalculation->calculateCommission($t);
-        dd($response);
-    }
-
 
     public function tranzactionRequest(TranzactionRequest $request)
     {

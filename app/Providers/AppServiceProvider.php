@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\ApiCurrencyRateInterface;
+use App\Services\CurrencyExchangeRateService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(ApiCurrencyRateInterface::class,  function () {
+            return new CurrencyExchangeRateService();
+        });
     }
 
     /**
